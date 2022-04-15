@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Payment from "../Payment.js";
+import Razor from "../Razor.js";
 import { addCart, delCart } from "../redux/action.js";
 
 function Cart() {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.handleCart);
-  //  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
 
   function handleBtn(items) {
     dispatch(addCart(items));
@@ -31,7 +31,7 @@ function Cart() {
                 <div className="col-md-4">
                   <h3>{title}</h3>
                   <p className="lead fw-bold">
-                    {qty}X{price}=${qty * price}
+                    {qty}X{price}=₹ {qty * price}
                   </p>
                   <button
                     className="btn btn-outline-dark"
@@ -47,7 +47,8 @@ function Cart() {
                   </button>
 
                   <div className="mt-3">
-                    <Payment price={qty * price}></Payment>
+                    <Payment price={qty * price} item={item}></Payment>
+                    <Razor price={qty * price} item={item}></Razor>
                   </div>
                 </div>
               </div>

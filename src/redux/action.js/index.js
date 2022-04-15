@@ -10,3 +10,17 @@ export const delCart = (product) => {
     payload: product,
   };
 };
+
+export const cartDataDelete = (item) => {
+  return {
+    type: "CARTDATADELETE",
+    payload: item,
+  };
+};
+
+export const OrderDataACtion = (item) => {
+  return {
+    type: "ORDERDATA",
+    payload: item,
+  };
+};

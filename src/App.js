@@ -6,6 +6,7 @@ import Home from "./Component/Home";
 import Product from "./Product";
 import Products from "./Products";
 import Cart from "./Component/Cart";
+import OrderHistory from "./Component/OrderHistory";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/products" component={Product}></Route>
         <Route exact path="/products/:id" component={Products}></Route>
         <Route exact path="/cart" component={Cart}></Route>
+        <Route exact path="/oders" component={OrderHistory}></Route>
       </Switch>
     </div>
   );

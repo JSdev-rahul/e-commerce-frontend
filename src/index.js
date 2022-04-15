@@ -9,12 +9,18 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { Provider } from "react-redux";
 import { store } from "./redux/action.js/Store";
+import { PersistGate } from "redux-persist/integration/react";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import { persistor } from "./redux/action.js/Store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </BrowserRouter>
 );

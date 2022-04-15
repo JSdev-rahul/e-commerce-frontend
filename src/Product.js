@@ -40,7 +40,7 @@ function Product() {
         <div className="buttons d-flex justify-content-center mb-5  pb-5">
           <button
             className="btn btn-outline-dark me-2  "
-            onClick={() => setfilter(data)}
+            onClick={setfilter(data)}
           >
             All
           </button>
@@ -85,9 +85,9 @@ function Product() {
                     <h5 className="card-title mb-0 ">
                       {title.substring(0, 11)}
                     </h5>
-                    <p className="card-text lead fw-bold ">$ {price}</p>
+                    <p className="card-text lead fw-bold ">₹ {price}</p>
                     <NavLink to={`products/${id}`} className="btn btn-primary">
-                      buy Now
+                      Buy
                     </NavLink>
                   </div>
                 </div>

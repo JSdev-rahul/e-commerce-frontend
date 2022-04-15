@@ -1,8 +1,15 @@
 import StripeCheckout from "react-stripe-checkout";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { cartDataDelete, OrderDataACtion } from "./redux/action.js";
 
-function Payment({ price }) {
+function Payment({ price, item }) {
+  const dispatch = useDispatch();
   function handleToken(token, addresses) {
+    if (token) {
+      dispatch(cartDataDelete(item));
+      dispatch(OrderDataACtion(item));
+    }
     console.log(token, addresses);
   }
   return (
@@ -14,6 +21,7 @@ function Payment({ price }) {
         shippingAddress
         amount={price}
         name="rahul"
+        item={item}
       ></StripeCheckout>
     </div>
   );
